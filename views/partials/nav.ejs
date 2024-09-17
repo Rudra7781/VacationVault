@@ -1,0 +1,47 @@
+<nav>
+  <div class="nav-wrapper" style="background-color: #67dfd5;">
+    <!-- Logo and home link (update to land on the landing page) -->
+    <a href="/" class="brand-logo">
+      <img src="/images/logo.png" alt="Logo" style="height: 65px; padding: 5px;">
+    </a>
+    <!-- Button for toggling the navbar on small screens -->
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons" style="color: black;">Menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <!-- Link to the home page -->
+      <li><a href="/home" style="color: black;">Home</a></li>
+      
+      <!-- Conditional rendering based on user authentication status -->
+      <% if (locals.user) { %>
+      <!-- Link to add a new vault post for authenticated users -->
+      <li><a href="/vault/add-new" style="color: black;">Add New Vault</a></li>
+      <!-- User profile with image and name -->
+      <li>
+        <a class="dropdown-trigger" href="#" data-target="userDropdown">
+          <span style="color: black;"><%= locals.user.name %></span>
+          <img src="/images/default_profile.png" alt="Profile" style="height: 30px; width: 30px; border-radius: 50%; vertical-align: middle;">
+        </a>
+        <!-- Dropdown Structure -->
+        <ul id="userDropdown" class="dropdown-content">
+          <li><a href="/user/logout" style="color: black; background-color: #67dfd5;">Logout</a></li>
+        </ul>
+      </li>
+      <% } else { %>
+      <!-- Links for non-authenticated users -->
+      <li><a href="/user/signup" style="color: black;">Create Account</a></li>
+      <li><a href="/user/signin" style="color: black;">Sign In</a></li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
+
+<!-- Side Navigation for mobile devices -->
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="/" style="color: black;">Home</a></li>
+  <% if (locals.user) { %>
+  <li><a href="/vault/add-new" style="color: black;">Add New Vault</a></li>
+  <li><a href="/user/logout" style="color: black;">Logout</a></li>
+  <% } else { %>
+  <li><a href="/user/signup" style="color: black;">Create Account</a></li>
+  <li><a href="/user/signin" style="color: black;">Sign In</a></li>
+  <% } %>
+</ul>

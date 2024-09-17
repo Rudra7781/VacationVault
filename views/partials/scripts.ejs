@@ -1,0 +1,16 @@
+<!-- Link to Materialize JavaScript from a CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- Initialize Materialize components -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the dropdown
+    var dropdowns = document.querySelectorAll('.dropdown-trigger');
+    M.Dropdown.init(dropdowns, {hover: false, coverTrigger: false});
+
+    // Initialize the side navigation
+    var sidenavs = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(sidenavs);
+
+  });
+</script>
