@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include the head partial which contains meta tags and stylesheet links -->
+    <%- include('./partials/head') %>
+    <title>Signup</title> <!-- Page title -->
+  </head>
+  <body>
+    <!-- Include the navigation bar partial -->
+    <%- include('./partials/nav') %>
+ 
+    <div class="container" style="font-size: 18px; margin-top: 50px;"> <!-- Adjusted format and style -->
+      <!-- Form for user sign-up -->
+      <form action="/user/signup" method="post">
+        <!-- Full Name input field -->
+        <div class="input-field">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            class="validate"
+            required
+          />
+        </div>
+ 
+        <!-- Email address input field -->
+        <div class="input-field">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="validate"
+            required
+          />
+        </div>
+ 
+        <!-- Password input field -->
+        <div class="input-field">
+          <label for="password">Password</label>
+          <input
+            name="password"
+            type="password"
+            id="password"
+            class="validate"
+            required
+          />
+        </div>
+ 
+        <!-- Submit button for the form -->
+        <div class="input-field">
+          <button class="btn waves-effect waves-light" style="background-color: #67dfd5; color: black;" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+ 
+    <!-- Include the scripts partial which contains JavaScript links -->
+    <%- include('./partials/scripts') %>
+ 
+    <!-- Include the footer partial -->
+  <%- include('./partials/footer') %>
+  </body>
+</html>
+ 
