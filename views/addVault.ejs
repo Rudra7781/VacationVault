@@ -8,13 +8,62 @@
   <body>
     <!-- Include the navigation bar partial -->
     <%- include('./partials/nav') %>
-
-    <h4>Add New Vault For Your Vacation Memories!</h4>
+ 
+    <div class="container" style="font-size: 18px; margin-top: 50px;">
+      <form action="/vault" method="post" enctype="multipart/form-data">
+        <!-- Input for uploading a cover image -->
+        <div class="file-field input-field">
+          <div class="btn" style="background-color: #67dfd5;">
+            <span style="color: black;">Cover Image</span>
+            <input type="file" id="coverImage" name="coverImage" />
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate">
+          </div>
+        </div>
+    
+        <!-- Input for the vault title -->
+        <div class="input-field">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" />
+        </div>
+    
+        <!-- Textarea for the vault body -->
+        <div class="input-field">
+          <label for="body">Body</label>
+          <textarea id="body" name="body" class="materialize-textarea"></textarea>
+        </div>
+    
+        <!-- Inputs for additional images -->
+        <div class="file-field input-field">
+          <div class="btn" style="background-color: #67dfd5;">
+            <span style="color: black;">Additional Images</span>
+            <input type="file" id="additionalImages" name="additionalImages" multiple />
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate">
+          </div>
+        </div>
+    
+        <!-- Inputs for image captions -->
+        <div class="input-field">
+          <label for="captions">Captions for Images (comma separated)</label>
+          <input type="text" id="captions" name="captions" placeholder="Enter captions for the images" />
+        </div>
+    
+        <!-- Submit button -->
+        <div class="input-field">
+          <button class="btn waves-effect waves-light" style="background-color: #67dfd5; color: black;" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+ 
     <!-- Include the scripts partial which contains JavaScript links -->
     <%- include('./partials/scripts') %>
-
+ 
     <!-- Include the footer partial -->
   <%- include('./partials/footer') %>
   </body>
 </html>
-

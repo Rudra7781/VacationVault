@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include the head partial which contains meta tags and stylesheet links -->
+    <%- include('./partials/head') %>
+    <title>Vault</title> <!-- Page title -->
+    <style>
+      /* Background gradient for a darker aesthetic */
+      body {
+        background: linear-gradient(to bottom,black, grey); /* Dark gray to black gradient */
+        color: #ddd; /* Light text color for contrast */
+        font-family: 'Arial', sans-serif;
+      }
+ 
+      /* Custom styles for images */
+      .cover-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        margin: 20px auto;
+        display: block;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Darker shadow */
+        border: 2px solid #444; /* Slight border for distinction */
+      }
+ 
+      .additional-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        border: 2px solid #444;
+      }
+ 
+      .caption {
+        font-size: 16px;
+        color: #bbb; /* Slightly lighter text for captions */
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: 30px;
+      }
+ 
+      .vault-title {
+        font-family: 'Arial Black', sans-serif;
+        font-size: 2.5em;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ddd; /* Light color for title */
+      }
+ 
+      .vault-body {
+        font-family: 'Cursive', sans-serif;
+        font-size: 1.2em;
+        text-align: justify;
+        margin-bottom: 40px;
+        padding: 0 15px;
+        color: #ddd; /* Light text color */
+      }
+ 
+      .chip {
+        display: inline-block;
+        padding: 0 15px;
+        height: 32px;
+        font-size: 14px;
+        line-height: 32px;
+        border-radius: 16px;
+        background-color: #444; /* Dark chip background */
+        color: #ddd; /* Light text for contrast */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      }
+ 
+      .card {
+        background-color: #333; /* Darker card background */
+        border-radius: 15px;
+        overflow: hidden;
+      }
+ 
+      .card-content {
+        padding: 10px;
+        text-align: center;
+        color: #ddd; /* Light text for readability */
+      }
+ 
+      /* Adjust font sizes for smaller screens */
+      @media (max-width: 768px) {
+        .vault-title {
+          font-size: 2em;
+        }
+        .vault-body {
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Include the navigation bar partial -->
+    <%- include('./partials/nav') %>
+ 
+    <div class="container mt-4">
+      <!-- Display the vault title in large font size -->
+      <h1 class="vault-title"><%= vault.title %></h1>
+      
+      <!-- Display the cover image of the vault, centered and same size as additional images -->
+      <div class="card z-depth-2" style="max-width: 500px; margin: 0 auto;">
+        <img src="<%= vault.coverImageURL %>" alt="Vault Cover" class="cover-image">
+      </div>
+    
+      <!-- Display the body of the vault -->
+      <p class="vault-body"><%= vault.body %></p>
+    
+      <!-- Loop through additional images and captions -->
+      <div class="additional-images mt-4 row">
+        <% vault.images.forEach(image => { %>
+        <div class="col s12 m6 l4">
+          <div class="card z-depth-2">
+            <img src="<%= image.url %>" alt="Additional Image" class="additional-image">
+            <div class="card-content">
+              <p class="caption"><%= image.caption %></p>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+ 
+    <div class="container mt-4" style="font-size: 20px; font-family:Arial, Helvetica, sans-serif; font-style:oblique">
+      <!-- Display the full name of the user who created the vault -->
+      <div class="chip">
+        <%= vault.createdBy.fullName %>
+      </div>
+    </div>
+    
+    <!-- Include the scripts partial which contains JavaScript links -->
+    <%- include('./partials/scripts') %>
+ 
+    <!-- Include the footer partial -->
+    <%- include('./partials/footer') %>
+  </body>
+</html>
+ 

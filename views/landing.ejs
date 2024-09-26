@@ -5,80 +5,106 @@
     <%- include('./partials/head') %>
     <title>Landing Page</title> <!-- Page title -->
     <style>
-      /* Custom styles to enlarge the logo and style the description */
+      /* Enhanced background and layout */
       body {
-        background: url('/images/travel.jpg') no-repeat center center fixed; 
+        background: url('/images/travel.jpg') no-repeat center center fixed;
         background-size: cover; /* Ensures the image covers the entire background */
-        color: white; /* Change text color to ensure it stands out against the background */
+        color: white; /* Keep text white for contrast */
         font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
       }
-
+ 
+      /* Centering and adding more space for the description container */
       .description-container {
         text-align: center;
-        margin-top: 100px;
-        font-size: 22px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        color: #040404;
-        max-width: 800px;
+        margin-top: 70px;
+ 
         margin-left: auto;
-        margin-right: 50px;
+        margin-right: 50px; /* Center horizontally */
+        font-size: 14px; /* Slightly larger font for readability */
+        font-family: 'Montserrat', sans-serif; /* Elegant font for better readability */
+        color: #ffffff; /* Light color for contrast */
+        max-width: 700px; /* Limit the width for better reading experience */
+        padding: 20px; /* Adding padding for text breathing space */
+        background-color: rgba(0, 0, 0, 0.6); /* Transparent black background */
+        border-radius: 10px; /* Rounded corners for modern design */
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
       }
+ 
+      /* Adjust paragraph styles for better text flow */
       .description-container p {
-        line-height: 1.6;
+        line-height: 1.8; /* Increased line height for readability */
+        margin-bottom: 20px; /* Add space between paragraphs */
       }
-
+ 
+      /* Style the call-to-action button */
       .explore-btn {
         display: block;
+        text-align: center; /* Center the button */
         margin-top: 30px;
-        float: right;
-        margin-right: 345px;
       }
+ 
+      /* Button style with hover effects */
       .explore-btn a {
         background-color: #67dfd5;
-        color: black;
-        padding: 15px 30px;
+        color: white;
+        padding: 15px 40px;
         text-decoration: none;
-        font-size: 18px;
+        font-size: 20px; /* Increase font size for emphasis */
         font-weight: bold;
-        border-radius: 5px;
-       
+        border-radius: 50px; /* Rounded button for a modern look */
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow for 3D effect */
+        transition: all 0.3s ease-in-out; /* Smooth hover transition */
       }
+ 
+      /* Hover effect for the button */
       .explore-btn a:hover {
-        background-color: #56bfb5;
+        background-color: #56bfb5; /* Slightly darker background */
+        transform: translateY(-5px); /* Slight upward movement */
+        box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.5); /* Increased shadow on hover */
+      }
+ 
+      /* Responsive design for mobile devices */
+      @media screen and (max-width: 768px) {
+        .description-container {
+          font-size: 18px; /* Decrease font size for smaller screens */
+          margin: 50px 20px; /* Adjust margins for better fit */
+        }
+ 
+        .explore-btn a {
+          padding: 12px 30px; /* Adjust padding for smaller screens */
+          font-size: 16px; /* Reduce button text size */
+        }
       }
     </style>
   </head>
   <body>
     <!-- Include the navigation bar partial -->
     <%- include('./partials/nav') %>
-
-    <!-- Logo section
-    <div class="logo-container">
-      <img src="/images/logo.png" alt="Website Logo" />
-    </div> -->
-
-    <!-- Description section -->
+ 
+    <!-- Description section with updated styling -->
     <div class="description-container">
       <h2>Where Every Journey Finds Its Place</h2>
       <p>
         Discover a world of travel inspiration at <strong>Vacation Vault</strong>, the ultimate social media platform for wanderers and explorers.
         Share your most memorable travel experiences by uploading stunning photos from your adventures around the globe, and explore captivating
-        journeys from other travelers. Whether you’re relaxing on a beach, hiking in the mountains, or immersing yourself in new cultures, 
+        journeys from other travelers. Whether you’re relaxing on a beach, hiking in the mountains, or immersing yourself in new cultures,
         <strong>Vacation Vault</strong> is the perfect place to showcase your travels and get inspired by others.
       </p>
       <p>
         With an easy-to-use interface, you can quickly upload, view, and interact with travel content from around the world. Start your journey with us today!
       </p>
     </div>
-
+ 
     <!-- Explore Button (Call-to-Action) -->
     <div class="explore-btn">
       <a href="/home">Explore the World</a> <!-- Button linking to explore or signup page -->
     </div>
-
+ 
     <!-- Include the scripts partial which contains JavaScript links -->
     <%- include('./partials/scripts') %>
-
+ 
     <!-- Include the footer partial -->
   <%- include('./partials/footer') %>
   </body>
