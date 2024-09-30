@@ -47,37 +47,3 @@
   <% } %>
 </ul>
  
-<!--
-Documentation Summary
-This file, nav.ejs, defines a navigation bar used across different pages in the Vacation Vault application. It is a partial
-view template written in EJS (Embedded JavaScript), which allows dynamic content rendering based on the application's state.
-Here's an overview of its components:
- 
-Bootstrap Navbar:
- 
-Classes:
-navbar: Defines the navbar component.
-navbar-expand-lg: Makes the navbar responsive and expandable on large screens.
-bg-body-tertiary and bg-dark: Sets the background colors of the navbar.
-Data Attribute: data-bs-theme="dark" applies the dark theme to the navbar for better visual consistency.
-Brand and Toggle Button:
- 
-Brand Name: The a tag with class navbar-brand displays the application name and links to the home page.
-Toggle Button: The button element with class navbar-toggler allows users to collapse or expand the navbar on small screens.
-It includes attributes for accessibility and interaction.
-Collapsible Navbar Content:
- 
-Content: Wrapped in a div with classes collapse and navbar-collapse, making it collapsible on small screens.
-Navbar Items: Includes a list of links and dropdown items for navigation.
-Conditional Rendering:
- 
-Authenticated Users:
-Add New Vault: Provides a link for authenticated users to add new vault posts (or "vaults").
-User Dropdown: Displays the user's name and a dropdown menu with a logout option.
-Non-Authenticated Users:
-Sign Up and Sign In: Provides links for non-authenticated users to sign up or sign in.
-Error Message:
- 
-Conditional Display: Displays an error message if present in locals.error. The message is shown in an alert box for visibility.
-This partial view ensures consistent navigation across the application, adapting to the user's authentication status and providing
-appropriate navigation options. It utilizes Bootstrap for styling and responsiveness, making it functional on both desktop and mobile devices. -->
