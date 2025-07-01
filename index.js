@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require("path"); // Import path module for handling file paths
 const express = require("express"); // Import Express framework
 
@@ -19,9 +21,7 @@ const PORT = 8000; // Define port number
 // Configure Mongoose to connect to MongoDB
 mongoose.set("strictQuery", false); // Allow non-strict query behavior
 mongoose
-    .connect(
-        "mongodb+srv://ajitmudgerikar4:sit726@vacationvaultcluster0.7zfz1.mongodb.net/?retryWrites=true&w=majority&appName=VacationVaultCluster0"
-    )
+    .connect(process.env.MONGODB_URI)
     .then((e) => console.log("MongoDB Connected")); // Log success message on successful connection
 
 app.set("view engine", "ejs"); // Set EJS as the view engine

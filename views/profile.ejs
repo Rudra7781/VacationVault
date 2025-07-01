@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Include the head partial which contains meta tags and stylesheet links -->
+    <%- include('./partials/head') %>
+        <title>User Profile</title> <!-- Page title -->
+</head>
+
+<body style="background: linear-gradient(to bottom,black, grey);">
+    <!-- Include the navigation bar partial -->
+    <%- include('./partials/nav') %>
+
+        <div class="container" style="margin-top: 50px; "> <!-- Increased margin from navbar -->
+            <!-- Create a grid layout to display vault posts -->
+
+
+            <div class="row">
+                <div class="user-info"
+                    style="margin-bottom: 20px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
+                    <!-- User Image -->
+                    <div style="flex-shrink: 0; margin-right: 20px;">
+                        <img src="<%= user.profileImageURL || '/default-profile.png' %>" alt="User Profile Image"
+                            style="height: 150px; width: 150px; border-radius: 50%; object-fit: cover;" />
+                    </div>
+                    <!-- User Details -->
+                    <div>
+                        <h2 style="margin-bottom: 10px;">User Profile</h2>
+                        <p><strong>Full Name:</strong>
+                            <%= user.name %>
+                        </p>
+                        <p><strong>Email:</strong>
+                            <%= user.email %>
+                        </p>
+                        <p><strong>Joined Date:</strong>
+                            <%= user.createdAt.split('T')[0] %>
+                        </p>
+                        <p><strong>Bio:</strong>
+                            <%= user.bio || 'No bio available' %>
+                        </p>
+                    </div>
+                </div>
+                <!-- Vaults Section Heading -->
+                <h3 style="color: white; margin-bottom: 30px;">Your Vaults</h3>
+
+                <!-- Iterate over the vaults array and render each vault -->
+                <% vaults.forEach(vault=> { %>
+                    <div class="col s12 m6 l3"> <!-- Materialize uses col classes for responsive grids -->
+                        <div class="card" style="height: 400px;"> <!-- Fixed card height for uniform size -->
+                            <!-- Display the cover image of the vault -->
+                            <div class="card-image" style="height: 150px;">
+                                <img src="<%= vault.coverImageURL %>" alt="Vault Cover"
+                                    style="height:100%; object-fit:cover;" />
+                            </div>
+                            <div class="card-content">
+                                <!-- Display the vault title -->
+                                <span class="card-title">
+                                    <%= vault.title %>
+                                </span>
+                                <!-- Display the creator's full name -->
+                                <p>Created by: <%= vault.createdBy ? vault.createdBy.fullName : 'Unknown' %>
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <!-- Link to the individual vault page -->
+                                <a href="/vault/<%= vault._id %>" class="btn"
+                                    style="background-color: #67dfd5; color: black;">View</a>
+                                <!-- Share button that triggers an alert with the vault URL -->
+                                <a href="#" class="btn" style="background-color: #67dfd5; color: black;"
+                                    onclick="alert('Share your vault with everyone: ' + window.location.origin + '/vault/<%= vault._id %>'); return false;">Share</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %> <!-- End of vault iteration -->
+            </div>
+        </div>
+
+        <!-- Include the scripts partial which contains JavaScript links -->
+        <%- include('./partials/scripts') %>
+
+            <!-- Include the footer partial -->
+            <%- include('./partials/footer') %>
+</body>
+
+</html>
